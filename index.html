@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Age calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Square+Peg&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      class man {
+        constructor(name, year) {
+          this.name = name;
+          this.anme = year;
+        }
+      }
+      var age_cal = function () {
+        var cur_year = 2022;
+        if (
+          !document.getElementById("username").value ||
+          !document.getElementById("birth_year").value
+        ) {
+          alert("Enter valid name and age");
+        } else {
+          var user_input = document.getElementById("birth_year").value;
+          var dob = new Date(user_input);
+
+          var month_diff = Date.now() - dob.getTime();
+
+          var age_dt = new Date(month_diff);
+
+          var year = age_dt.getUTCFullYear();
+
+          var age = Math.abs(year - 1970);
+
+          document.getElementById("result").innerHTML =
+            document.getElementById("username").value +
+            " is " +
+            age +
+            " years old. ";
+        }
+      };
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden;
+      }
+      body {
+        height: 100vh;
+        position: relative;
+        background-image: url("background_web.jpg");
+        background-position: center;
+        background-size: cover;
+      }
+      div {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: bisque;
+        padding: 50px;
+        font-size: 20px;
+      }
+      button {
+        margin-left: 43%;
+        font-size: 15px;
+      }
+      h1 {
+        font-family: "Square Peg", cursive;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 50px;
+      }
+      footer {
+        width: 100%;
+        height: 50px;
+        background-color: black;
+        color: antiquewhite;
+        position: absolute;
+        bottom: 0%;
+        left: 0%;
+      }
+      .self {
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        padding-top: 15px;
+      }
+      a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Age calculator</h1>
+    <div>
+      <br />
+      Enter your name: <input type="text" id="username" /> <br /><br />
+      Enter your age: <input type="date" id="birth_year" /> <br /><br />
+
+      <button id="submit" onclick="age_cal()">submit</button>
+      <br />
+      <span id="result"></span>
+    </div>
+    <footer>
+      <p class="self">
+        Created by
+        <a href="https://www.linkedin.com/in/sbalajiviswa/">Balaji V</a>
+      </p>
+    </footer>
+  </body>
+</html>
